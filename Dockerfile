@@ -1,6 +1,6 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
 ARG IMAGE_VERSION=9-jre11-slim
-
+ARG COMMUNITY_EXTENSIONS=''
 
 FROM tomcat:$IMAGE_VERSION
 
@@ -32,8 +32,8 @@ RUN set -e \
 
 ENV \
     JAVA_HOME=/usr/lib/jvm/default-java \
-    STABLE_EXTENSIONS='' \
-    COMMUNITY_EXTENSIONS='' \
+    STABLE_EXTENSIONS='querylayer-plugin' \
+    COMMUNITY_EXTENSIONS='gwc-azure-blobstore-plugin' \
     DEBIAN_FRONTEND=noninteractive \
     GEOSERVER_DATA_DIR=/opt/geoserver/data_dir \
     GDAL_DATA=/usr/local/gdal_data \
