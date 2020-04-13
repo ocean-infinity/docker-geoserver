@@ -30,7 +30,7 @@ services:
       restart: on-failure
       environment:
         - COMMUNITY_EXTENSIONS=gwc-azure-blobstore-plugin
-        - STABLE_EXTENSIONS=querylayer-plugin
+        - STABLE_EXTENSIONS=querylayer-plugin,importer-plugin
         - SAMPLE_DATA=true
       env_file:
         - docker-env/geoserver.env

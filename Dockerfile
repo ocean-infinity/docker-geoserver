@@ -1,6 +1,8 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
 ARG IMAGE_VERSION=9-jre11-slim
 ARG COMMUNITY_EXTENSIONS=''
+ARG STABLE_EXTENSIONS=''
+ARG SAMPLE_DATA=false
 
 FROM tomcat:$IMAGE_VERSION
 
