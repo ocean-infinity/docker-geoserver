@@ -1,2 +1,2 @@
 {$DOMAIN_NAME}
-reverse_proxy * gs:8600
+reverse_proxy * geoserver:8080
