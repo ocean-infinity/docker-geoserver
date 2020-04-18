@@ -12,7 +12,7 @@ docker build \
   --build-arg COMMUNITY_EXTENSIONS=${COMMUNITY_EXTENSIONS} \
   --build-arg STABLE_EXTENSIONS=${STABLE_EXTENSIONS} \
   --build-arg GS_VERSION=${MAJOR}.${MINOR}.${BUGFIX} \
-  --build-arg TOMCAT_EXTRAS=false \
+  --build-arg TOMCAT_EXTRAS=true \
   --build-arg SAMPLE_DATA=true \
   -t oinf/geoserver:${MAJOR}.${MINOR}.${BUGFIX} .
 
