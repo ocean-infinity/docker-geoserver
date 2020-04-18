@@ -1,0 +1,54 @@
+version: '3.5'
+
+volumes:
+  geoserver-data:
+  geo-db-data:
+  production_caddy: {}
+
+services:
+  caddy:
+    container_name: caddy
+    hostname: oi-dev.com
+    image: library/caddy:latest
+    env_file: .env
+    depends_on:
+      - django
+    volumes:
+      - production_caddy:/root/.caddy
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - "80:80"
+      - "443:443"
+  db:
+    image: kartoza/postgis:12.0
+    volumes:
+      - geo-db-data:/var/lib/postgresql
+    ports:
+      - "25434:5432"
+    env_file:
+      - docker-env/db.env
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
+
+  geoserver:
+    image: oinf/geoserver:2.16.2
+    container_name: gs
+    #build:
+    #context: ./
+    volumes:
+      - geoserver-data:/opt/geoserver/data_dir
+      - ${LOCAL_DATA_DIR}:/datadrive
+    ports:
+      - "8600:8080"
+    restart: on-failure
+    env_file:
+      - docker-env/geoserver.env
+      - .env
+    depends_on:
+      - db
+    healthcheck:
+      test: curl --fail -s http://localhost:8080/ || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
