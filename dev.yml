@@ -12,7 +12,7 @@ services:
     image: library/caddy:latest
     env_file: .env
     depends_on:
-      - django
+      - geoserver
     volumes:
       - production_caddy:/root/.caddy
       - ./Caddyfile:/etc/caddy/Caddyfile
