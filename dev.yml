@@ -3,7 +3,7 @@ version: '3.5'
 volumes:
   geoserver-data:
   geo-db-data:
-  production_caddy: {}
+  caddy_data: {}
 
 services:
   caddy:
@@ -14,7 +14,7 @@ services:
     depends_on:
       - geoserver
     volumes:
-      - production_caddy:/root/.caddy
+      - caddy_data:/data
       - ./Caddyfile:/etc/caddy/Caddyfile
     ports:
       - "80:80"
