@@ -9,3 +9,8 @@ resources/overlays/*
 btsync-media.env 
 btsync-db.env 
 .env
+__pycache__
+*.psql
+*.dump
+.idea
+*.gpkg
