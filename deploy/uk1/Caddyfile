@@ -1,0 +1,2 @@
+geo-uk1.oi-dev.com
+reverse_proxy * geoserver:8080
