@@ -1,7 +1,7 @@
 #!/bin/sh
 
-BUGFIX=2
-MINOR=16
+BUGFIX=0
+MINOR=17
 MAJOR=2
 STABLE_EXTENSIONS=querylayer-plugin,importer-plugin
 COMMUNITY_EXTENSIONS=gwc-azure-blobstore-plugin
