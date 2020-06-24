@@ -1,2 +1,3 @@
 importer-plugin
 querylayer-plugin
+monitor-plugin
