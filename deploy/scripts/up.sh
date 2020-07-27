@@ -4,5 +4,6 @@ if [ -n "$1" ]; then
 else
     TAG='2.17.0'
 fi
+echo $TAG
 export DOCKER_TAG=$TAG
-cd /root && docker-compose up -d
+cd /home/oi && sudo docker-compose up -d

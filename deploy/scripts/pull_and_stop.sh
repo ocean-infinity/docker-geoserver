@@ -6,5 +6,6 @@ else
 fi
 export $(cat /root/.env | xargs)
 export DOCKER_TAG=$TAG
-docker pull oinf/geoserver:$TAG
-docker-compose down --remove-orphans
+sudo docker pull oinf/geoserver:$TAG
+sudo docker-compose down --remove-orphans
+cd /home/oi && sudo docker-compose up -d

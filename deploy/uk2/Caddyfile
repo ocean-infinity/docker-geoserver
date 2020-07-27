@@ -1,0 +1,2 @@
+oi-geo.uksouth.cloudapp.azure.com
+reverse_proxy * geoserver:8080
