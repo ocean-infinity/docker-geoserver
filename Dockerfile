@@ -107,14 +107,14 @@ ENV \
     SAMPLE_DATA='FALSE'\
     GEOSERVER_FILEBROWSER_HIDEFS=false
 
-
-
-
 EXPOSE  $HTTPS_PORT
 
 RUN groupadd -r geoserverusers -g 10001 && \
     useradd -M -u 10000 -g geoserverusers geoserveruser
+
 RUN chown -R geoserveruser:geoserverusers /usr/local/tomcat ${FOOTPRINTS_DATA_DIR}   ${GEOSERVER_DATA_DIR} /scripts ${LETSENCRYPT_CERT_DIR}
+
+RUN mkdir /gwc-blobstore && chown -R geoserveruser:geoserverusers /gwc-blobstore
 
 RUN chmod o+rw ${LETSENCRYPT_CERT_DIR}
 
